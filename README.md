@@ -1,24 +1,23 @@
 # PUPQC - Faculty Performance System
 
 ## Setup & Installation
-
 Make sure you have the latest version of Python installed.
 
+Clone the project
 ```bash
 git clone <repo-url>
 ```
-
-```bash
-mkdir fps_base
-```
+Point the dir cursor to the folder
 
 ```bash
 cd fps_base
 ```
+Setup environment
 
 ```bash
 py -3 -m venv .venv
 ```
+Install python fLask
 
 ```bash
 pip install flask
@@ -28,6 +27,11 @@ pip install flask
 
 Go to main.py and press play button on upper right
 (for VS Code users)
+
+Ps: The process in later version of python executing a command
+'flask run'
+
+The latest command is "&" + <python directory> + <directory of main.py>
 
 ## Viewing The App
 
