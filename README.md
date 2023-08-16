@@ -17,7 +17,7 @@ Setup environment
 ```bash
 py -3 -m venv .venv
 ```
-Install python fLask
+Install python flask
 
 ```bash
 pip install flask
@@ -31,7 +31,7 @@ Go to main.py and press play button on upper right
 Ps: The process in later version of python executing a command
 'flask run'
 
-The latest command is "&" + <python directory> + <directory of main.py>
+The latest command is "&" + "python directory" + "directory of main.py"
 
 ## Viewing The App
 
