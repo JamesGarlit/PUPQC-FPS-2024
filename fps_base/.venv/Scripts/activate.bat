@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Users\Daniel\Documents\GitHub\PUPQC-FPS-2024\tests\.venv
+set VIRTUAL_ENV=D:\Capstone_2023-24\PUPQC-FPS-2024\fps_base\.venv
 
 if not defined PROMPT set PROMPT=$P$G
 

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Users\Daniel\Documents\GitHub\PUPQC-FPS-2024\tests\.venv"
+VIRTUAL_ENV="D:\Capstone_2023-24\PUPQC-FPS-2024\fps_base\.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
