@@ -10,8 +10,8 @@
   }
   
   .div-center {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     background-color: #fff;
     position: absolute;
     left: 0;
@@ -103,12 +103,8 @@
         transform: translateX(1);
     }
 }
-.md-logo{
-    padding-top:50px;
-   
-}
 .md-copyright{
-    padding-top: 600px;
+    padding-top: 780px;
     font-family: Gothic,CenturyGothic,AppleGothic,sans-serif; 
 }
 a, a:hover{

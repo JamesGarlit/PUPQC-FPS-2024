@@ -4,65 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/signin.css">
-    <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-    crossorigin="anonymous"
-  />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+     rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    crossorigin="anonymous"
-  />
+    crossorigin="anonymous"/>
     <title>Sign-InPage</title>
 </head>
-<section class="h-100 h-custom gradient-custom-2">
-  <div class="container">
-    <div class="registration mx-auto d-block w-100">
-      <div class="page-header text-center">
-        <h1>Sign up</h1>
-      </div>
-      
-      <form id="member-registration" action="/astroidnew/index.php/pages/register?task=registration.register" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
-        <fieldset>
-          <legend>User Registration</legend>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Name *</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Username *</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password *</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password *</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email Address *</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Confirm Email Address *</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="form-group d-flex justify-content-start">
-              <button type="submit" class="btn btn-primary">Submit</button>
+<body>
+  <div class="back">
+      <div class="div-center">      
+        <div class="content">   
+          <center><div class="container-md d-flex justify-content-center md-logo">
+            <img src="imgs\logo88x88.png" alt="PUPLOGO" width="100" height="100"></div></center>
+          <center><h2>Create your Account</h2>
+          <p>Welcome back! Please Enter your Details</p>
+          </center>
+          <hr/>
+          <form>
+            <div class="form-floating mb-2">
+              <input type="email" class="form-control rounded-3" id="emailform" placeholder="Email">
+              <label for="emailform">Full Name</label>
             </div>
-            <div class="form-check form-group d-flex justify-content-end">
-              <a href="login.html">Sign in instead</a>
+
+            <div class="form-floating mb-2">
+              <input type="email" class="form-control rounded-3" id="emailform" placeholder="Email">
+              <label for="emailform">Email Address</label>
+            </div>
+            <div class="form-floating d-flex flex-row mb-2">
+              <input type="password" class="form-control  rounded-3" id="passing" placeholder="Password">
+              <label for="passing">Password</label>
+              <div class="input-group-text"><a href="#" class="text-dark" id="icon-click">
+                <i class="fa fa-eye" aria-hidden="true" id="icon"></i>
+              </a>
             </div>
           </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</section>
+          <div class="form-floating d-flex flex-row mb-2">
+            <input type="password" class="form-control  rounded-3" id="passing" placeholder="Password">
+            <label for="passing">Retype Password</label>
+            <div class="input-group-text"><a href="#" class="text-dark" id="icon-click">
+              <i class="fa fa-eye" aria-hidden="true" id="icon"></i>
+            </a>
+          </div>
+        </div>
+          <div class=" form-check d-flex flex-row md-2">
+            <input type="checkbox" class="form-check-input mb-4 p-2" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I accept all Terms & Conditions</label>
+          </div>
+        <div class="d-grid gap-2 md-3">
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            <center><p>Already have an account?<button type="button" class="btn btn-link p-2"><a href="login.html">Login</a></button></p></center>
+        </div>
+            <hr/>
+          </div>       
+        </div>
+          </form> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"
+   integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
  </body>
 </html>
