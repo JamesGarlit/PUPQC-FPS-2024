@@ -1,8 +1,12 @@
+*{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
 .back {
     width: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
+    padding:100px 0;
   }
   
   .div-center {
@@ -98,4 +102,15 @@
     100% {
         transform: translateX(1);
     }
+}
+.md-logo{
+    padding-top:50px;
+   
+}
+.md-copyright{
+    padding-top: 600px;
+    font-family: Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
+a, a:hover{
+    color:#333;
 }
