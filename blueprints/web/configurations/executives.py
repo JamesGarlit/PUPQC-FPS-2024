@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, session, redirect, url_for
 import psycopg2, psycopg2.extras
-from blueprints.database.models import db  # Import db and user from models
+from blueprints.database.models import db
 
-exec_bp = Blueprint("executives", __name__, template_folder="templates")
+exec_bp = Blueprint("executives", __name__, template_folder="../templates")
 
-# bridge to dashboard (Executive)
+# routes to dashboard (Executive)
 @exec_bp.route('/executive')
 def executive():
     # verify if a user is logged in
@@ -16,7 +16,7 @@ def executive():
     # if not logged in, redirect to the login page
     return redirect(url_for('auth.login'))
 
-#bridge to profile (Executive)
+# routes to profile (Executive)
 @exec_bp.route('/executive_profile')
 def executive_profile():
     cursor = db.conn.cursor(

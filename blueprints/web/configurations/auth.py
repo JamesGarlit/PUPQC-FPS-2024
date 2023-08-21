@@ -3,9 +3,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2, psycopg2.extras, re
 from blueprints.database.models import db  # Import db and user from models
 
-auth_bp = Blueprint("auth", __name__, template_folder="templates")
+auth_bp = Blueprint("auth", __name__, template_folder="../templates")
 
-# bridge for login page
+# routes for login page
 @auth_bp.route("/", methods=['GET','POST'])
 def login():
 
@@ -46,7 +46,7 @@ def login():
 
     return render_template('login.html')
 
-# bridge for register page
+# routes for register page
 @auth_bp.route("/register", methods=['GET','POST'])
 def register():
     cursor = db.conn.cursor(
@@ -101,7 +101,7 @@ def register():
     # show registration form with message
     return render_template('register.html')
 
-# bridge to logout
+# routes to logout
 @auth_bp.route('/logout')
 def logout():
     #remove the session data

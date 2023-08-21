@@ -1,6 +1,6 @@
 from flask import Flask
-from blueprints.web.auth import auth_bp
-from blueprints.web.executives import exec_bp
+from blueprints.web.configurations.auth import auth_bp
+from blueprints.web.configurations.executives import exec_bp
 
 def blueprint_start():
     app = Flask(__name__, static_folder='../static', template_folder='../templates')
