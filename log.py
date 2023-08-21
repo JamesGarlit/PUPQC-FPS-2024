@@ -1,30 +1,39 @@
-import logging
+import subprocess
 
-# Configure logging
-logging.basicConfig(filename='fps.log'
-                    , level=logging.DEBUG
-                    , format='%(asctime)s - %(levelname)s - %(message)s')
+def commit_and_push(message):
+    subprocess.run(["git", "add", "."])  # Stage all changes
+    subprocess.run(["git", "commit", "-m", message])  # Commit changes with the provided message
+    subprocess.run(["git", "push"])  # Push changes to remote repository
 
-# Simulate processing a request
-def process_request(request):
-    # Simulate an error condition
-    if request.get("error"):
-        raise ValueError("An error occurred during request processing.")
-    return "Request processed successfully from process_request"
+def pull_changes():
+    subprocess.run(["git", "pull"])  # Pull changes from remote repository
 
-# Handle incoming requests
-def handle_request(request):
-    try:
-        # Call the request processing function
-        result = process_request(request)
-        logging.info(f"Request processed successfully from handle_request: {result}")
-        return result
-    except Exception as e:
-        logging.error(f"An error occurred: {e}", exc_info=True)
-        return "An error occurred during request processing"
+def create_tag(tag_name, tag_message):
+    subprocess.run(["git", "tag", "-a", tag_name, "-m", tag_message])  # Create a new tag
 
-# Simulate web system usage
 if __name__ == "__main__":
-    request_data = {"key": "value"}
-    response = handle_request(request_data)
-    print(response)
+    print("Python Web Development Version Control Script")
+    
+    while True:
+        print("\nOptions:")
+        print("1. Commit and Push Changes")
+        print("2. Pull Changes")
+        print("3. Create Version Tag")
+        print("4. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == "1":
+            commit_message = input("Enter commit message: ")
+            commit_and_push(commit_message)
+        elif choice == "2":
+            pull_changes()
+        elif choice == "3":
+            tag_name = input("Enter tag name: ")
+            tag_message = input("Enter tag message: ")
+            create_tag(tag_name, tag_message)
+        elif choice == "4":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please choose again.")
