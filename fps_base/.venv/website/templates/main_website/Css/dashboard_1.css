@@ -1,0 +1,10 @@
+*{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+  }
