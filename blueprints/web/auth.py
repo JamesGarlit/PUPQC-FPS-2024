@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, session, redirect, flash, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2, psycopg2.extras, re
-from blueprints.database.models import db, user  # Import db and user from models
+from blueprints.database.models import db  # Import db and user from models
 
 auth_bp = Blueprint("auth", __name__, template_folder="templates")
 
@@ -38,7 +38,7 @@ def login():
                 session['username'] = account['username']
 
                 # redirect to dashboard
-                return redirect(url_for('auth.executive'))
+                return redirect(url_for('executives.executive'))
                 
         else:
             # No account in db
@@ -112,35 +112,3 @@ def logout():
     # Kick to login Page
     return redirect(url_for('auth.login'))
 
-# bridge to dashboard (Executive)
-@auth_bp.route('/executive')
-def executive():
-    # verify if a user is logged in
-    if 'logged_in' in session:
-
-        # if logged in, render the test.html template
-        return render_template('users/executives/exec_dashboard.html', username=session['username'])
-    
-    # if not logged in, redirect to the login page
-    return redirect(url_for('auth.login'))
-
-#bridge to profile (Executive)
-@auth_bp.route('/executive_profile')
-def executive_profile():
-    cursor = db.conn.cursor(
-        cursor_factory=psycopg2.extras.DictCursor
-    )
-
-    # Check if user is logged in
-    if 'logged_in' in session:
-        cursor.execute(
-            'SELECT * FROM users WHERE id = %s'
-            , [session['id']]
-        )
-        account = cursor.fetchone()
-
-        # Show the profile page with account info
-        return render_template('users/executives/exec_profile.html', account = account)
-    
-    # if user is not logged in, redirect to login page
-    return redirect(url_for('login'))
