@@ -10,5 +10,6 @@ class Database:
             port='5432'
         )
         self.cursor = self.conn.cursor()
+        
 # instance of the Database class
 db = Database()

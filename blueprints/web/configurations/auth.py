@@ -8,7 +8,6 @@ auth_bp = Blueprint("auth", __name__, template_folder="../templates")
 # routes for login page
 @auth_bp.route("/", methods=['GET','POST'])
 def login():
-
     cursor = db.conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
     # Check if user and pass post request exist
