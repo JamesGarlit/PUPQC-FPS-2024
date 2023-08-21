@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link
+            rel="icon"
+            type="images/png"
+            href="{{ url_for('static', filename='img/logo.png') }}"
+        />
+        <title>
+            {% block title %}
+                PUP-QC Faculty Performance System
+            {% endblock %}
+        </title>
+    
+        <!-- Bootstrap CDN Litera Theme-->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css"
+            integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" 
+            crossorigin="anonymous"
+        />
+
+        <!-- Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/d249a58cc0.js" crossorigin="anonymous"></script>
+
+        <!-- PUPQC-FPS CSS location -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    </head>
+
+    <body class="logged_in">
+        <!-- navbar -->
+        <nav class="site-header sticky-top py-1">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('executives.executive') }}"><i class="fas fa-home"></i> Dashboard</a>
+                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('executives.executive_profile') }}"><i class="fas fa-user-circle"></i> Profile</a>
+                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </nav>
+
+        <!-- sidebar -->
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <i class="fas fa-home"></i>
+                                    Dashboard
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-users"></i>
+                                    Faculty Profile Management
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Teaching Evaluation and Feedback
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-users"></i>
+                                    Research and Publications
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Professional Development and Training
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Committee Participation and Service
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Performance Evaluation and Goal Setting
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Merit and Promotion Tracking
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Feedback and Communication
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Attendance and Leave Management
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Faculty and Awards Recognition
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Workload Distribution
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Faculty Development Plans
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-download"></i>
+                                    Faculty Retention and Exit Management
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- dashboard -->
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <div class="col-12">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </main> 
+            </div>
+        </div> 
+    </body>
+</html>

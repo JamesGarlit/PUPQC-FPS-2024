@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <img
+        src="{{ url_for('static', filename='img/logo.png') }}"
+        alt="PUPQC-FPS"
+        style="height:200px; width:200px;"
+    >
+
+    <h1 class="h2">Dashboard</h1>
+    <p>Welcome back, {{ username }}!</p>
+{% endblock %}
