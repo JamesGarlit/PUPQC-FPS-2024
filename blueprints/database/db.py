@@ -9,6 +9,7 @@ class Database:
             host='127.0.0.1',
             port='5432'
         )
+        self.conn.autocommit = True
         self.cursor = self.conn.cursor()
         
 # instance of the Database class
