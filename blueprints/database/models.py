@@ -3,16 +3,6 @@ from .db import Database
 # instance of the Database class
 db = Database()
 
-
-def create_database():
-    query = """    
-    CREATE DATABASE sampledb1
-    """
-    db.cursor.execute(query)
-    db.conn.commit()
-    # db.cursor.close()
-    # db.conn.close()
-
 def create_table():
     query = """
         CREATE TABLE IF NOT EXISTS users (
@@ -62,3 +52,4 @@ def create_table():
     """
     db.cursor.execute(query)
     db.conn.commit()
+    

@@ -14,139 +14,142 @@
                 PUP-QC Faculty Performance System
             {% endblock %}
         </title>
-    
-        <!-- Bootstrap CDN Litera Theme-->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css"
-            integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" 
-            crossorigin="anonymous"
-        />
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <!-- Font Awesome CDN -->
-        <script src="https://kit.fontawesome.com/d249a58cc0.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
 
-        <!-- PUPQC-FPS CSS location -->
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css') }}"
-        />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/bower_components/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/assets/pages/waves/css/waves.min.css') }}" type="text/css" media="all">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/icon/feather/css/feather.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/icon/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/pages/prism/prism.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/css/style.css') }}">
+
+        <!-- For Analytics -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/css/font-awesome-n.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bower_components/chartist/css/chartist.css') }}" type="text/css" media="all">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/assets/css/widget.css') }}">
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+            crossorigin="anonymous">
+        </script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/chart.js">
+        </script>
+
+        <script
+        src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'>
+        </script>
+
     </head>
 
-    <body class="logged_in">
-        <!-- navbar -->
-        <nav class="site-header sticky-top py-1">
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('executives.executive') }}"><i class="fas fa-home"></i> Dashboard</a>
-                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('executives.executive_profile') }}"><i class="fas fa-user-circle"></i> Profile</a>
-                <a class="py-2 d-none d-md-inline-block" href="{{ url_for('auth.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </div>
-        </nav>
+    <body class="menu-bottom">
+        {% block content1 %}{% endblock %}
 
-        <!-- sidebar -->
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                    <div class="sidebar-sticky">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">
-                                    <i class="fas fa-home"></i>
-                                    Dashboard
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-users"></i>
-                                    Faculty Profile Management
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Teaching Evaluation and Feedback
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-users"></i>
-                                    Research and Publications
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Professional Development and Training
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Committee Participation and Service
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Performance Evaluation and Goal Setting
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Merit and Promotion Tracking
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Feedback and Communication
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Attendance and Leave Management
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Faculty and Awards Recognition
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Workload Distribution
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Faculty Development Plans
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-download"></i>
-                                    Faculty Retention and Exit Management
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/bower_components/jquery/js/jquery.min.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/bower_components/jquery-ui/js/jquery-ui.min.js') }} "></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/bower_components/popper.js/js/popper.min.js') }} "></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/bower_components/bootstrap/js/bootstrap.min.js') }} "></script>
 
-                <!-- dashboard -->
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                        <div class="col-12">
-                            {% block content %}{% endblock %}
-                        </div>
-                    </div>
-                </main> 
-            </div>
-        </div> 
+        <script src="{{ url_for('static', filename='plugins/assets/pages/waves/js/waves.min.js') }} "></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/bower_components/jquery-slimscroll/js/jquery.slimscroll.js') }} "></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/assets/pages/prism/custom-prism.js') }} "></script>
+
+        <script src="{{ url_for('static', filename='plugins/assets/js/pcoded.min.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/js/vertical/menu/menu-sidebar-fixed.js') }} "></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/assets/js/script.js') }} "></script>
+
+        <!-- Analytics Part -->
+        <script src="{{ url_for('static', filename='plugins/assets/pages/chart/float/jquery.flot.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/chart/float/jquery.flot.categories.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/chart/float/curvedLines.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/chart/float/jquery.flot.tooltip.min.js') }} "></script>
+        
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/amcharts.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/gauge.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/serial.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/light.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/pie.min.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/ammap.min.js') }} "></script>
+        <script src="{{ url_for('static', filename='plugins/assets/pages/widget/amchart/usaLow.js') }} "></script>
+        
+        <script src="{{ url_for('static', filename='plugins/bower_components/chartist/js/chartist.js') }} "></script>
+
+        
+        <script type="text/javascript" src="{{ url_for('static', filename='plugins/assets/pages/dashboard/analytic-dashboard.min.js') }} "></script>
+        
+        <script>
+            //For showing time and date
+            function updateDateTime() {
+                const now = new Date();
+                const timeElement = document.getElementById('time');
+                const dateElement = document.getElementById('date');
+        
+                const options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true
+                };
+        
+                timeElement.textContent = now.toLocaleTimeString(undefined, options);
+                dateElement.textContent = now.toDateString();
+            }
+        
+            setInterval(updateDateTime, 1000); // Update every second
+            updateDateTime(); // Initial update
+            
+            const ctx = document.getElementById('barChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: ['BSCS', 'BSIT', 'BSENTREP', 'BSHRM', 'BSPOLGOV', 'BSACC'],
+                datasets: [{
+                    label: '# of Faculty Performance',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+                },
+                options: {
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+            })
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
+        </script>
+
     </body>
 </html>

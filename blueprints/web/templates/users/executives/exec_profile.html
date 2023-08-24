@@ -1,28 +1,600 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-    <h1>Profile page</h1>
+{% block content1 %}
+    <!-- <h1>Profile page</h1>
     <div>
         <p>Your account details are below:</p>
         <table>
 
-            <!-- full name -->
+            
             <tr>
                 <td>Name:</td>
                 <td>{{ account['fullname'] }}</td>
             </tr>
 
-            <!-- user name -->
+            
             <tr>
                 <td>Username:</td>
                 <td>{{ account['username'] }}</td>
             </tr>
 
-            <!-- email -->
+            
             <tr>
                 <td>Email:</td>
                 <td>{{ account['email'] }}</td>
             </tr>
         </table>
+    </div> -->
+
+
+    <style>
+        .hey
+        {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 800px;
+        }
+    </style>
+
+    <div class="loader-bg hey">
+        <!-- <div class="loader-bar"></div> -->
+        <img src="http://i.giphy.com/13Xkz5sLdjGiQw.gif" height="60px" width="60px">
+    </div>
+
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <!-- footer nav -->
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a href="javascript:void(0)">
+                            <h3>
+                                PUPQC-FPS
+                                <span style="font-size: .4em;">v.1.0.1</span>
+                            </h3>
+                        </a>
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <div class="mt-2 mr-2">
+                                <i class="feather icon-menu icon-toggle-right" style="font-size: 1.8em;"></i>
+                            </div>
+                            
+                        </a>
+                        <a class="mobile-options waves-effect waves-light">
+                            <i class="feather icon-more-horizontal"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend search-close">
+                                            <i class="feather icon-x input-group-text"></i>
+                                        </span>
+
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        
+                                        <span class="input-group-append search-btn">
+                                            <i class="feather icon-search input-group-text"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                                    <img class="img-fluid" src="../static/img/logo.png" alt="Logo" height="40px" width="40px">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav-right">
+                            <li class="header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="feather icon-bell"></i>
+                                        <span class="badge bg-c-red">5</span>
+                                    </div>
+                                    <!-- <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                        <li>
+                                            <h6>Notifications</h6>
+                                            <label class="label label-danger">New</label>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="img-radius" src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" alt="Generic placeholder image">
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">User no.1</h5>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="img-radius" src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" alt="Generic placeholder image">
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">User no.2</h5>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="img-radius" src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" alt="Generic placeholder image">
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">User no.3</h5>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul> -->
+                                </div>
+                            </li>
+                            <li class="header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
+                                        <i class="feather icon-message-square"></i>
+                                        <span class="badge bg-c-green">3</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="user-profile header-notification">
+                                <div class="dropdown-primary dropdown">
+                                    <div class="dropdown-toggle" data-toggle="dropdown">
+                                        <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" class="img-radius" alt="User-Profile-Image">
+                                        <span>Faculty name member</span>
+                                        <i class="feather icon-chevron-down"></i>
+                                    </div>
+                                    
+                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                        <li>
+                                            <a href="#!">
+                                                <i class="feather icon-settings"></i> Settings
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="feather icon-user"></i> Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="feather icon-mail"></i> My Messages
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="feather icon-lock"></i> Lock Screen
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="feather icon-log-out"></i> Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+
+                    <!-- sidebar -->
+                    <nav class="pcoded-navbar">
+                        <div class="nav-list">
+                            <div class="pcoded-inner-navbar main-menu">
+                                <div class="pcoded-navigation-label">Your Performance</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="">
+                                        <a href="{{ url_for('executives.executive') }}" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-home"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Dashboard</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="pcoded-navigation-label">Faculty Profile Management</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <!-- pcoded-trigger -->
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                            <span class="pcoded-mtext">Personal Data</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="active">
+                                                <a href="{{ url_for('executives.executive_profile') }}" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Basic Details</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Personal Details</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Family Background</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Educational Background</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Eligibilities</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Work Experiences</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Voluntary Works</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Training & Seminars</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Outstanding Achievement</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Officers / Membership</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Other Information</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Additional Questions</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Character Reference</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Signature</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Personal Data Reports</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
+                                            <span class="pcoded-mtext">Attendance Mgmt.</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-home"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Leave Mgmt.</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-heart"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Medical Information</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <div class="pcoded-navigation-label">Teaching Evaluation and Feedback</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
+                                            <span class="pcoded-mtext">Feedback Option 1</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-mail"></i></span>
+                                            <span class="pcoded-mtext">Feedback Option 2</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="pcoded-navigation-label">Research and Publications</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-book"></i></span>
+                                            <span class="pcoded-mtext">Research Option 1</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                                            <span class="pcoded-mtext">Research Option 2</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class>
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu ">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon"><i class="feather icon-server"></i></span>
+                                            <span class="pcoded-mtext">Research Option 3</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 1</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 2</span>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Option 3</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- contents -->
+                    <div class="pcoded-content">
+
+                        <div class="page-header card">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="feather icon-sidebar bg-c-blue"></i>
+                                        <div class="d-inline">
+                                            <h5>Basic Details</h5>
+                                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="page-header-breadcrumb">
+                                        <ul class=" breadcrumb breadcrumb-title">
+                                            <li class="breadcrumb-item">
+                                                <a href="javascript:void(0)"><i class="feather icon-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item gray">
+                                                <a href="#!">Basic Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <span>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Container no.2</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit <code><strong>informacion</strong></code> in <code>PDS</code>.</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Container no.3</h5>
+                                                    </div>
+
+                                                    <div class="card-block">
+                                                        <p>lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Container Block no.4</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <p>
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                                            and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                                            1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
+                                                            at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+                                                            discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book
+                                                            is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk
+                                                            of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original
+                                                            form, accompanied by English versions from the 1914 translation by H. Rackham.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <br><br><br>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="styleSelector">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

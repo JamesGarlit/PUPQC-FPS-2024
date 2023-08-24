@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, session, redirect, url_for, request
 import psycopg2, psycopg2.extras
 from blueprints.database.models import db
 
@@ -7,13 +7,17 @@ exec_bp = Blueprint("executives", __name__, template_folder="../templates")
 # routes to dashboard (Executive)
 @exec_bp.route('/executive')
 def executive():
-    # verify if a user is logged in
-    if 'logged_in' in session:
+    cursor = db.conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-        # if logged in, render the test.html template
-        return render_template('users/executives/exec_dashboard.html', username=session['username'])
-    
-    # if not logged in, redirect to the login page
+    if 'logged_in' in session:
+        cursor.execute(
+            'SELECT * FROM users WHERE id = %s'
+            , [session['id']]
+        )
+        account = cursor.fetchone()       
+        
+        return render_template('users/executives/exec_dashboard.html', username=session['username'], fullname=account['fullname'])
+
     return redirect(url_for('auth.login'))
 
 # routes to profile (Executive)
